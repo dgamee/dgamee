@@ -34,7 +34,7 @@ I am an IT professional from Nigeria 🇳🇬.
 
 - 💞️ I’m looking to collaborate on Data analytics and Cybersecurity.
 
-- :zap: In my free time, I play video games,  and read tech articles.
+- :zap: In my free time, I play video games  and read tech articles.
 
 - :mailbox:How to reach me: :email: rayden.ai@gmail.com
 
