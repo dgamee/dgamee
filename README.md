@@ -26,7 +26,7 @@
 ---
 
 ### :man_technologist: About Me :
-I am a Back End developer from Nigeria 🇳🇬.
+I am an IT professional from Nigeria 🇳🇬.
 
 - :telescope: I’m working as a Software Engineer and contributing to frontend and backend for building web applications.
 
