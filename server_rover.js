@@ -15,6 +15,11 @@ const collectionName = 'TELEMETRY';
 // Middleware
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
+
 // Connect to MongoDB
 MongoClient.connect(mongoUrl, {
   useNewUrlParser: true,
@@ -65,4 +70,5 @@ app.post('/telemetry', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Telemetry server running at http://0.0.0.0:${PORT}`);
 });
+
 
