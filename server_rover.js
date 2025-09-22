@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
 
 // Telemetry endpoint
 app.post('/telemetry', async (req, res) => {
-  const telemetry = req.body;
+  const telemetry = req.body.telemetry;
 
-  if (!telemetry || Object.keys(telemetry).length === 0) {
-    return res.status(400).send('Missing telemetry payload');
+  if (!telemetry) {
+    return res.status(400).send('Missing telemetry data');
   }
 
   console.log('📡 Received telemetry:', telemetry);
@@ -47,7 +47,10 @@ app.post('/telemetry', async (req, res) => {
       return res.status(503).send('Database not connected');
     }
 
-    telemetry.timestamp = new Date(); // auto add server time
+    const now = new Date();
+    const formattedDateTime = `${now.getFullYear()}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+    telemetry.timestamp = formattedDateTime;
 
     const result = await db.collection(collectionName).insertOne(telemetry);
     console.log('✅ Telemetry saved with _id:', result.insertedId);
@@ -62,3 +65,4 @@ app.post('/telemetry', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Telemetry server running at http://0.0.0.0:${PORT}`);
 });
+
